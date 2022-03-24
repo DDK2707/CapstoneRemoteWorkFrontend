@@ -8,7 +8,7 @@
               <li class="list-group-item">Name : {{ results.username }}</li>
               <li class="list-group-item">Email : {{ results.email }}</li>
               <li class="list-group-item">Contact : {{ results.contact }}</li>
-              <li class="list-group-item">Cart : {{ results.cart }}</li>
+              <li class="list-group-item">Posts : {{ results.posts }}</li>
             </ul>
           </div>
         </div>
