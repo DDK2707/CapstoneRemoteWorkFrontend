@@ -67,6 +67,7 @@ nav p {
 	margin: 5px 10px;
 	letter-spacing: 1px;
 	float: left;
+	
 }
 
 .burger {

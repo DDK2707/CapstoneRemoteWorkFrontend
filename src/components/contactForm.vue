@@ -29,9 +29,36 @@ export default {
 
 <style scoped>
 form {
+    max-width: 420px;
+    margin: 30px auto;
+    text-align: center;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+h1 {
+    color: #7692ff;
+}
+
+form {
     display: grid;
     margin-inline: auto;
     width: 50%;
+}
+
+button {
+    background-color: #7692ff;
+    border: solid black;
+    padding: 10px 20px;
+    margin: auto;
+    width: 50%;
+    color: black;
+    border-radius: 20px;
+}
+
+input, textarea {
+    border-radius: 10px;
+    border: solid black;
 }
 
 @media (max-width:600px) {
@@ -47,8 +74,7 @@ form {
         margin-left: 10px;
     }
     button{
-        margin-right: 10px;
-        margin-left: 10px;
+        margin: auto
     }
 }
 

@@ -1,5 +1,4 @@
 <template>
-    <div>
     <section>
       <div class="container mt-5">
         <div class="row">
@@ -15,7 +14,6 @@
         </div>
       </div>
     </section>
-  </div>
 </template>
 
 <script>
@@ -25,12 +23,13 @@ export default {
   data() {
     return {
       Users: [],
+      results: {}
     }
   },
   mounted() {
     axios.get('https://ddk-capstone-backend.herokuapp.com/api/users')
     .then((response) => {
-      this.Users = response.data.results;
+      this.results = response.data.results;
       console.log(response.data);
     })
     .catch((error) => {

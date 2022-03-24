@@ -2,7 +2,6 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import userProfile from '../views/userProfile.vue'
-import labelProfile from '../views/labelProfile.vue'
 import Contact from '../views/Contact.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
@@ -24,11 +23,6 @@ const routes = [
     component: userProfile
   },
   {
-    path: '/labelProfile',
-    name: 'labelProfile',
-    component: labelProfile
-  },
-  {
     path: '/contact',
     name: 'contact',
     component: Contact
@@ -42,6 +36,11 @@ const routes = [
     path:'/register',
     name: 'register',
     component: Register
+  },
+  {
+    path: '/contact',
+    name: 'register',
+    component: Contact
   }
 ]
 

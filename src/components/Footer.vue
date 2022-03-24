@@ -1,6 +1,6 @@
 <template>
   <footer>
-      <p>Created by DDK. 2022</p>
+      <p>Created by DDK ©. 2022</p>
   </footer>
 </template>
 
