@@ -1,13 +1,19 @@
 <template>
     <section>
       <div class="container mt-5">
+        <div class="row" id="coverphoto">
+          <div class="col-md-12">
+            <img src="" alt="">
+          </div>
+        </div>
         <div class="row">
           <div class="col-md-12">
             <ul class="list-group">
                 <li class="list-group-item"><img src="" alt=""></li>
               <li class="list-group-item">Name : {{ results.username }}</li>
               <li class="list-group-item">Email : {{ results.email }}</li>
-              <li class="list-group-item">Contact : {{ results.contact }}</li>
+              <li class="list-group-item">Description : {{ results.description }}</li>
+              <li class="list-group-item">Location : {{results.city}}</li>
               <li class="list-group-item">Posts : {{ results.posts }}</li>
             </ul>
           </div>
@@ -40,4 +46,7 @@ export default {
 </script>
 
 <style>
+ .row {
+   width: 100%;
+ }
 </style>
