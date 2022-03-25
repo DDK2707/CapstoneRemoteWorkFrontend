@@ -1,13 +1,13 @@
 <template>
 
-  <contactForm/>
+  <ContactForm/>
 </template>
 
 <script>
-import contactForm from '@/components/contactForm.vue'
+import ContactForm from '@/components/contactForm.vue'
 export default {
 components: {
-    contactForm
+    ContactForm
 }
 }
 </script>

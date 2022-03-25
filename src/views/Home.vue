@@ -1,15 +1,18 @@
 <template>
     <div class="homecontainer">
         <div class="row" v-for="result of results" :key="result._id">
-            <div class="col-sm-9 border border-primary">
-                <div class="posts"> {{result.description}} </div>
+            <div class="col-sm-3 border border-primary">
                 <div class="image"> {{result.img}} </div>
+            </div>
+            <div class="col-sm-6 border border-primary">
+                <div class="posts"> {{result.description}} </div>
                 <div class="likes"> {{result.likes}} </div>
             </div>
             <div class="col-sm-3 border border-primary" id="followlist">
                 <ul class="followerlist">
                     <li class="follower"> {{result.followers}}</li>
                 </ul>
+                <br>
                 <ul class="followinglist">
                     <li class="following"> {{result.following}} </li>
                 </ul>
