@@ -7,7 +7,7 @@
         </div>
         <div class="row">
           <div class="col-md-12">
-            <ul class="list-group">
+            <ul class="list-group border border-primary">
                 <li class="list-group-item"><img src="" alt=""></li>
               <li class="list-group-item">Name : {{ results.username }}</li>
               <li class="list-group-item">Email : {{ results.email }}</li>
@@ -47,4 +47,5 @@ export default {
  .row {
    width: 100%;
  }
+
 </style>

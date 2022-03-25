@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1 class="title">Log in to your account</h1>
+    <h1 class="title">Log in to your TUNEz account</h1>
     <div class="row">
       <div class="col-lg-6 offset-lg-3 col-sm-10 offset-sm-1">
         <form
@@ -24,8 +24,8 @@
             v-model="login.password"
           />
           <p>
-            Dont have an account??<router-link to="/register"
-              >click here</router-link
+            Dont have an account?? <router-link to="/register"
+              >Click here to register</router-link
             >
           </p>
           <!-- Sign in button -->
@@ -72,6 +72,6 @@ export default {
 <style scoped>
 .container .title {
   text-align: center;
-  margin-left: 2em;
+  margin-right: 1em;
 }
 </style>

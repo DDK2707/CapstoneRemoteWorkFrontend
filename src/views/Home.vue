@@ -1,12 +1,14 @@
 <template>
     <div class="homecontainer">
         <div class="row" v-for="result of results" :key="result._id">
-            <div class="col-sm-9">
+            <div class="col-sm-9 border border-primary">
                 <div class="posts"> {{result.description}} </div>
+                <div class="image"> {{result.img}} </div>
+                <div class="likes"> {{result.likes}} </div>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-3 border border-primary" id="followlist">
                 <ul class="followerlist">
-                    <li class="follower"> {{result.follower}}</li>
+                    <li class="follower"> {{result.followers}}</li>
                 </ul>
                 <ul class="followinglist">
                     <li class="following"> {{result.following}} </li>
@@ -14,17 +16,17 @@
             </div>
         </div>
     </div>
-    <chatBox />
+    <ChatBox />
 </template>
 
 <script>
 import axios from "axios"
-import chatBox from "@/components/chatBox.vue"
+import ChatBox from "@/components/ChatBox.vue"
 
 
 export default {
 components:
-chatBox,
+ChatBox,
 
 name: 'userDetails',
   data() {
@@ -57,17 +59,7 @@ name: 'userDetails',
 </script>
 
 <style scoped>
-.posts{
-    width: 100%;
-
-
-}
-
-.followinglist {
- width: 100%
-}
-
-.followerlist {
- width: 100%;
-}
+ #followlist {
+   margin: auto;
+ }
 </style>

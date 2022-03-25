@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap"
+import swal from 'sweetalert2'
 import VueSweetalert2 from 'vue-sweetalert2';
 
 import { initializeApp } from "firebase/app";
@@ -21,6 +22,7 @@ const firebaseConfig = {
 
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
+  window.Swal = swal
 
 
 createApp(App).use(router).use(VueSweetalert2).mount('#app')
