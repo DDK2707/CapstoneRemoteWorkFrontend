@@ -27,8 +27,8 @@
 }
 
 .aboutphoto {
-    width: 100%;
-  height: auto;
+    width: 800px;
+  height: 800px;
   margin-left: -50px;
   border-radius: 50%;
 }
@@ -44,5 +44,13 @@ h1 {
 
 #abouttext {
   margin: auto
+}
+
+@media(max-width: 1290px) {
+  .aboutphoto {
+    width: 100%;
+    height: auto;
+    margin: auto;
+  }
 }
 </style>

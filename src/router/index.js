@@ -36,11 +36,6 @@ const routes = [
     path:'/register',
     name: 'register',
     component: Register
-  },
-  {
-    path: '/contact',
-    name: 'register',
-    component: Contact
   }
 ]
 

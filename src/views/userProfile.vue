@@ -1,5 +1,4 @@
 <template>
-    <section>
       <div class="container mt-5">
         <div class="row" id="coverphoto">
           <div class="col-md-12">
@@ -19,7 +18,6 @@
           </div>
         </div>
       </div>
-    </section>
 </template>
 
 <script>
