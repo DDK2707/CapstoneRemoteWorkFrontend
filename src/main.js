@@ -3,6 +3,8 @@ import App from './App.vue'
 import router from './router'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap"
+import VueSweetalert2 from 'vue-sweetalert2';
+Vue.use(VueSweetalert2);
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 

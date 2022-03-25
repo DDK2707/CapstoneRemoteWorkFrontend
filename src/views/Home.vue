@@ -6,7 +6,7 @@
             </div>
             <div class="col-sm-3">
                 <ul class="followerlist">
-                    <li class="follower"> {{result.createdAt}}</li>
+                    <li class="follower"> {{result.follower}}</li>
                 </ul>
                 <ul class="followinglist">
                     <li class="following"> {{result.following}} </li>
@@ -56,7 +56,7 @@ name: 'userDetails',
 
 </script>
 
-<style>
+<style scoped>
 .posts{
     width: 100%;
 
@@ -64,10 +64,10 @@ name: 'userDetails',
 }
 
 .followinglist {
-
+ width: 100%
 }
 
 .followerlist {
-
+ width: 100%;
 }
 </style>
