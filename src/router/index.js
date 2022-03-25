@@ -8,7 +8,7 @@ import Register from '../views/Register.vue'
 
 const routes = [
   {
-    path: '/',
+    path: '/home',
     name: 'Home',
     component: Home
   },
@@ -28,7 +28,7 @@ const routes = [
     component: Contact
   },
   {
-    path:'/login',
+    path:'/',
     name:'login',
     component: Login
   },

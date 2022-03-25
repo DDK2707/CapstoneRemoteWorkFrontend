@@ -53,7 +53,7 @@ export default {
   methods: {
     async loginUser() {
       try {
-        let response = await this.$http.patch("/user/login", this.login);
+        let response = await this.$http.patch("/users/login", this.login);
         let token = response.data.token;
         localStorage.setItem("jwt", token);
         if (token) {
