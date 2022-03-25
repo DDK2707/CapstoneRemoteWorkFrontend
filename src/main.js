@@ -4,7 +4,7 @@ import router from './router'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap"
 import VueSweetalert2 from 'vue-sweetalert2';
-Vue.use(VueSweetalert2);
+
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 
@@ -23,4 +23,4 @@ const firebaseConfig = {
   const analytics = getAnalytics(app);
 
 
-createApp(App).use(router).mount('#app')
+createApp(App).use(router).use(VueSweetalert2).mount('#app')
