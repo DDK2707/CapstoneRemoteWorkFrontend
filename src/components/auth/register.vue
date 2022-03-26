@@ -1,6 +1,6 @@
 <template>
   <div class="registercontainer">
-      <h1>Register Here:</h1>
+      <h1 class="registertitle">Register Here:</h1>
       <div class="row">
         <div class="col-lg-6 offset-lg-3 col-sm-10 offset-sm-1">
             <form
@@ -22,13 +22,13 @@
             placeholder="Email"
             v-model="register.email"/>
           
-            <input
+            <!-- <input
             type="password"
             id="password"
             class="form-control mb-5"
             placeholder="Password"
             v-model="update.password"
-            />
+            /> -->
 
             <select name="roles" id="roleselect">
                 <option value="user/artist">Artist</option>
@@ -36,14 +36,14 @@
                 <option value="exec/label">Music Label</option>
             </select>
           <p>
-            Dont have an account?? <router-link to="/register"
-              >Click here to register</router-link
+            Alread have an account?? <router-link to="/"
+              >Click here to login</router-link
             >
           </p>
           <!-- Sign in button -->
           <center>
             <button class="btn btn-primary btn-block w-75 my-4" type="submit">
-              Sign in
+              Register your account
             </button>
           </center>
         </form>
@@ -83,5 +83,7 @@ export default {
 </script>
 
 <style>
-
+    .registertitle{
+        color: #7692ff;
+    }
 </style>

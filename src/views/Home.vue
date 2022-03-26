@@ -18,6 +18,7 @@
                 </ul>
             </div>
         </div>
+      <router-link to="/createPost">Create Post</router-link>
     </div>
     <ChatBox />
 </template>

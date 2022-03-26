@@ -15,23 +15,25 @@
               <li class="list-group-item">Location : {{results.city}}</li>
               <li class="list-group-item">Posts : {{ results.posts }}</li>
             </ul>
-          </div>
+            <br>
+            <router-link to="/updateProfile"> Update Profile </router-link>
+          </div> 
         </div>
       </div>
 </template>
 
 <script>
-import axios from "axios";
+import axios from "axios"
 export default {
   name: 'userDetails',
   data() {
     return {
-      Users: [],
+      User: [],
       results: {}
     }
   },
   mounted() {
-    axios.get('https://ddk-capstone-backend.herokuapp.com/api/users')
+    axios.get('https://ddk-capstone-backend.herokuapp.com/api/users/:id')
     .then((response) => {
       this.results = response.data.results;
       console.log(response.data);
@@ -47,5 +49,9 @@ export default {
  .row {
    width: 100%;
  }
+
+  .list-group {
+    margin-bottom: 100px;
+  }
 
 </style>

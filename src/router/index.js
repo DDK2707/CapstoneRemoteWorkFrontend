@@ -2,6 +2,8 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import userProfile from '../views/userProfile.vue'
+import updateProfile from '../views/updateProfile.vue'
+import createPost from '../views/createPost.vue'
 import Contact from '../views/Contact.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
@@ -21,6 +23,16 @@ const routes = [
     path:'/userProfile',
     name:'userProfile',
     component: userProfile
+  },
+  {
+    path: '/updateProfile',
+    name: 'updateProfile',
+    component: updateProfile
+  },
+  {
+    path:'/createPost',
+    name:'createPost',
+    component: createPost
   },
   {
     path: '/contact',

@@ -1,6 +1,6 @@
 <template>
-  <div class="registercontainer">
-      <h1>Update your profile:</h1>
+  <div class="updatecontainer">
+      <h1 class="updatetitle">Update your profile:</h1>
       <div class="row">
         <div class="col-lg-6 offset-lg-3 col-sm-10 offset-sm-1">
             <form
@@ -44,25 +44,30 @@
             v-model ="update.city"
             />
 
-            <input type="text"
-            id="profilepicture"
-            class="form-control mb-5"
-            placeholder="profilepicture"
-            v-model ="update.profilePicture"
-            />
+            <div class="imageinput" v-if="!image">
+              <h4>Upload Profile Picture</h4>
+              <input type="file" @change="onFileChange">
+            </div>
+            <div v-else>
+              <img :src="image" />
+              <button @click="removeImage">Remove image</button>
+            </div>
 
-            <input type="text"
-            id="coverPicture"
-            class="form-control mb-5"
-            placeholder="coverpicture"
-            v-model ="update.coverPicture"
-            />
-
+            <div class="imageinput" v-if="!image">
+              <h4>Upload Cover Picture</h4>
+              <input type="file" @change="onFileChange">
+            </div>
+            <div v-else>
+              <img :src="image" />
+              <button @click="removeImage">Remove image</button>
+            </div>
+              <br>
             <select name="roles" id="roleselect">
                 <option value="user/artist">Artist</option>
                 <option value="producer"> Producer</option>
                 <option value="exec/label">Music Label</option>
             </select>
+
 
 
           <!-- Update button -->
@@ -74,6 +79,7 @@
         </form>
       </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -105,11 +111,41 @@ export default {
         Swal.fire("Error", "Something Went Wrong", "error");
         console.log(err.response);
       }
+    },
+    onFileChange(e) {
+      var files = e.target.files || e.dataTransfer.files;
+      if (!files.length)
+        return;
+      this.createImage(files[0]);
+    },
+    createImage(file) {
+      var image = new Image();
+      var reader = new FileReader();
+      var vm = this;
+
+      reader.onload = (e) => {
+        vm.image = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    },
+    removeImage: function (e) {
+      this.image = '';
     }
   }
 }
 </script>
 
 <style>
+ .updatetitle{
+   margin-top: 50px;
+   color: #7692ff;
+ }
 
+ .imageinput {
+   margin-top: 50px;
+ }
+
+ .updatecontainer {
+   margin-bottom: 100px;
+ }
 </style>
