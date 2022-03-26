@@ -12,7 +12,7 @@
               <label for="message">Message</label>
               <textarea name="message" id="message" cols="30" rows="5" v-model="message"></textarea>
 
-              <button class="p-2">Send</button>
+              <button class="btn btn-primary btn-block w-75 my-4">Send</button>
 
   </form>
 </div>

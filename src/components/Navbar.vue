@@ -2,7 +2,7 @@
     <nav>
 		<div class="row">
 			<div class="col-sm-6">
-	<p>TUNEz</p>
+				<p>TUNEz</p>
 			</div>
 			<div class="col-sm-6">
 	<button id="burger" class="burger">
@@ -65,6 +65,7 @@ nav p {
 	color: #7692ff;
 	font-weight: bold;
 	margin: 5px 10px;
+	font-size: 1.3em;
 	letter-spacing: 1px;
 	float: left;
 	

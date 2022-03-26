@@ -53,16 +53,16 @@ export default {
   methods: {
     async loginUser() {
       try {
-        let response = await this.$http.patch("/users/login", this.login);
+        let response = await this.$http.patch("/api/users/login", this.login);
         let token = response.data.token;
         localStorage.setItem("jwt", token);
         if (token) {
-          swal("Success", "Login Successful", "success");
+          Swal.fire("Success", "Login Successful", "success");
           this.$router.push("/home");
         }
       } catch (err) {
-        swal("Error", "Something Went Wrong", "error");
-        console.log(err.response);
+        Swal.fire("Error", "Something Went Wrong", "error");
+        console.log(err.message);
       }
     }
   }
@@ -70,8 +70,17 @@ export default {
 </script>
 
 <style scoped>
-.container .title {
+.container {
+  margin-top: 5rem;
+}
+
+.title {
   text-align: center;
   margin-right: 1em;
+  color: #7692ff;
+}
+
+form {
+  border-radius: 10px;
 }
 </style>
