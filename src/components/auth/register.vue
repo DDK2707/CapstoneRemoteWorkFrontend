@@ -22,13 +22,13 @@
             placeholder="Email"
             v-model="register.email"/>
           
-            <!-- <input
+            <input
             type="password"
             id="password"
             class="form-control mb-5"
             placeholder="Password"
-            v-model="update.password"
-            /> -->
+            v-model="register.password"
+            />
 
             <select name="roles" id="roleselect">
                 <option value="user/artist">Artist</option>
@@ -36,11 +36,10 @@
                 <option value="exec/label">Music Label</option>
             </select>
           <p>
-            Alread have an account?? <router-link to="/"
+            Already have an account?? <router-link to="/"
               >Click here to login</router-link
             >
           </p>
-          <!-- Sign in button -->
           <center>
             <button class="btn btn-primary btn-block w-75 my-4" type="submit">
               Register your account
@@ -64,26 +63,43 @@ export default {
     };
   },
   methods: {
-    async registerUser() {
+   async registerUser() {
       try {
-        let response = await this.$http.patch("/api/users/register", this.register);
+        let response = await this.$http.post("/api/users/register", this.register);
+        console.log(response);
         let token = response.data.token;
-        localStorage.setItem("jwt", token);
         if (token) {
-          Swal.fire("Success", "Register Successful", "success");
+          localStorage.setItem("jwt", token);
           this.$router.push("/home");
+          alert("Success", "Registration Was successful", "success");
+        } else {
+          alert("Error", "Something Went Wrong", "error");
         }
       } catch (err) {
-        Swal.fire("Error", "Something Went Wrong", "error");
-        console.log(err.response);
+        let error = err.response;
+        if (error == 409) {
+          Swal.fire("Error", error.data.message, "error");
+        } else {
+          Swal.fire("Error", error.data.err.message, "error");
+        }
       }
     }
-  }
+    }
 }
 </script>
 
 <style>
-    .registertitle{
-        color: #7692ff;
-    }
+    .registercontainer {
+  margin-top: 5rem;
+}
+
+.registertitle {
+  text-align: center;
+  margin-right: 1em;
+  color: #7692ff;
+}
+
+form {
+  border-radius: 10px;
+}
 </style>
