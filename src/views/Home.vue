@@ -24,7 +24,7 @@
 
 <script>
 import axios from "axios"
-import ChatBox from "@/components/ChatBox.vue"
+import ChatBox from "@/components/chatBox.vue"
 
 
 export default {

@@ -9,9 +9,6 @@
               <label for="email">Email</label>
               <input type="email" v-model="email">
 
-              <label for="contact">Contact Number</label>
-              <input type="contact" name="contact" v-model="contact">
-
               <label for="message">Message</label>
               <textarea name="message" id="message" cols="30" rows="5" v-model="message"></textarea>
 
@@ -23,8 +20,17 @@
 
 <script>
 export default {
-
-}
+    mounted() {
+        axios.post('https://ddk-capstone-backend.herokuapp.com/contact')
+        .then((response) => {
+            this.results = response.data.results;
+            console.log(response.data);
+            })
+        .catch((error) => {
+            console.log(error.message);
+        });
+    }
+}   
 </script>
 
 <style scoped>
