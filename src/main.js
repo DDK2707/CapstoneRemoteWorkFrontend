@@ -1,10 +1,14 @@
-import { createApp } from 'vue'
+import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap"
 import swal from 'sweetalert2'
 import VueSweetalert2 from 'vue-sweetalert2';
+import axios from "axios"
+
+axios.defaults.withCredentials = true;
+axios.defaults.baseURL = "https://ddk-capstone-backend.herokuapp.com/"
 
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
@@ -24,5 +28,5 @@ const firebaseConfig = {
   const analytics = getAnalytics(app);
   window.Swal = swal
 
-
-createApp(App).use(router).use(VueSweetalert2).mount('#app')
+Vue.config.productionTip = false
+newVue({store, router, render: h => h(App)}).use(VueSweetalert2).$mount('app')

@@ -52,40 +52,32 @@
 </template>
 
 <script>
+import {mapActions} from "vuex"
+
 export default {
     data() {
     return {
-      register: {
+      form: {
         username:"",
         email: "",
         password: "",
         role:""
-      }
+      },
+      showError: false
     };
   },
   methods: {
-   async registerUser() {
+    ...mapActions(["Register"]),
+    async submit() {
       try {
-        let response = await this.$http.post("/api/users/register", this.register);
-        console.log(response);
-        let token = response.data.token;
-        if (token) {
-          localStorage.setItem("jwt", token);
-          this.$router.push("/home");
-          alert("Success", "Registration Was successful", "success");
-        } else {
-          alert("Error", "Something Went Wrong", "error");
-        }
-      } catch (err) {
-        let error = err.response;
-        if (error == 409) {
-          Swal.fire("Error", error.data.message, "error");
-        } else {
-          Swal.fire("Error", error.data.err.message, "error");
-        }
+        await this.Register(this.form);
+        this.$router.push("/home");
+        this.showError = false
+      }catch (error) {
+        this.showError = true
       }
     }
-    }
+  }
 }
 </script>
 

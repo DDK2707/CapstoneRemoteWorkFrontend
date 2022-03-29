@@ -6,7 +6,7 @@
         <form
           class="border border-primary p-5"
           style="margin-top:70px;height:auto;padding-top:100px !important;"
-          @submit.prevent="loginUser"
+          @submit.prevent="submit"
         >
           <input
             type="text"
@@ -41,28 +41,29 @@
 </template>
 
 <script>
+import {mapActions} from "vuex"
 export default {
   data() {
     return {
-      login: {
+      form: {
         email: "",
         password: ""
-      }
+      }, 
+      showError = false
     };
   },
   methods: {
-    async loginUser() {
-      try {
-        let response = await this.$http.put("/api/users/login", this.login);
-        let token = response.data.token;
-        localStorage.setItem("jwt", token);
-        if (token) {
-          Swal.fire("Success", "Login Successful", "success");
-          this.$router.push("/home");
-        }
-      } catch (err) {
-        Swal.fire("Error", "Something Went Wrong", "error");
-        console.log(err.message);
+    ...mapActions(["LogIn"]),
+    async submit() {
+      const User = newFormData();
+      User.append("email", form.email);
+      User.append("password", form.password);
+      try{
+        await this.LogIn(User);
+        this.$router.push("/home")
+        this.showError = false
+      }catch(error) {
+        this.showError = true
       }
     }
   }
