@@ -6,14 +6,14 @@
             <form
             class="text-center border border-primary p-5"
             style="margin-top:70px;height:auto;padding-top:100px !important;"
-            @submit.prevent="createPost">
+            @submit.prevent="submit">
 
             <input
             type="text"
             id="description"
             class="form-control mb-5"
             placeholder="Description"
-            v-model="post.description"/>
+            v-model="form.description"/>
 
             <div class="imageinput" v-if="!image">
               <h4>Upload image:</h4>
@@ -37,28 +37,32 @@
 </template>
 
 <script>
+import {mapGetters, mapActions} from 'vuex'
 export default {
     data() {
     return {
-      post: {
+      form: {
         description:"",
         img:"",
       }
     };
   },
+
+  created: function() {
+    this.getPosts()
+  },
+
+  computed: {
+    ...mapGetters({Posts: "StatePosts", User: "StateUser"}),
+  },
+
   methods: {
-    async createPost() {
+    ...mapActions(["CreatePost", "GetPosts"]),
+    async submit() {
       try {
-        let response = await this.$http.patch("/api/posts/", this.post);
-        let token = response.data.token;
-        localStorage.setItem("jwt", token);
-        if (token) {
-          Swal.fire("Success", "Post Successfully Uploaded", "success");
-          this.$router.push("/home");
-        }
-      } catch (err) {
-        Swal.fire("Error", "Something Went Wrong", "error");
-        console.log(err.response);
+        await this.createPost(this.form);
+      } catch(error) {
+        throw "You cannot make a post right now!"
       }
     },
     onFileChange(e) {

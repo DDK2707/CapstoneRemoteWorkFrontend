@@ -22,17 +22,20 @@ const routes = [
   {
     path:'/userProfile',
     name:'userProfile',
-    component: userProfile
+    component: userProfile,
+    meta: {requiresAuth: true}
   },
   {
     path: '/updateProfile',
     name: 'updateProfile',
-    component: updateProfile
+    component: updateProfile,
+    meta: {requiresAuth: true}
   },
   {
     path:'/createPost',
     name:'createPost',
-    component: createPost
+    component: createPost,
+    meta: {requiresAuth: true}
   },
   {
     path: '/contact',
@@ -42,12 +45,14 @@ const routes = [
   {
     path:'/',
     name:'login',
-    component: Login
+    component: Login,
+    meta: {guest: true}
   },
   {
     path:'/register',
     name: 'register',
-    component: Register
+    component: Register,
+    meta: {guest: true}
   }
 ]
 

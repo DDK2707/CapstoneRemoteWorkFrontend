@@ -49,7 +49,7 @@ export default {
         email: "",
         password: ""
       }, 
-      showError = false
+      showError: false
     };
   },
   methods: {

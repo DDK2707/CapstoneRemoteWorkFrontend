@@ -6,6 +6,7 @@ import "bootstrap"
 import swal from 'sweetalert2'
 import VueSweetalert2 from 'vue-sweetalert2';
 import axios from "axios"
+import store from './store/modules'
 
 axios.defaults.withCredentials = true;
 axios.defaults.baseURL = "https://ddk-capstone-backend.herokuapp.com/"
@@ -29,4 +30,6 @@ const firebaseConfig = {
   window.Swal = swal
 
 Vue.config.productionTip = false
-newVue({store, router, render: h => h(App)}).use(VueSweetalert2).$mount('app')
+new Vue({
+  store, router, render: h => h(App)
+}).use(VueSweetalert2).$mount('#app')
