@@ -1,4 +1,6 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import store from "../store"
 import Timeline from '../views/Timeline.vue'
 import About from '../views/About.vue'
 import userProfile from '../views/userProfile.vue'
@@ -7,6 +9,8 @@ import createPost from '../views/createPost.vue'
 import Contact from '../views/Contact.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
+
+Vue.use(VueRouter)
 
 const routes = [
   {
@@ -56,9 +60,34 @@ const routes = [
   }
 ]
 
-const router = createRouter({
-  history: createWebHashHistory(),
+const router = new VueRouter({
+  mode: "history",
+  base: process.env.BASE_URL,
   routes
 })
+
+router.beforeEach((to, from , next) => {
+  if(to.matched.some(record => record.meta.requiresAuth)) {
+    if(store.getters.isAuthenticated) {
+      next()
+      return
+    }
+    next('/')
+  } else {
+    next()
+  }
+})
+
+router.beforeEach((to, from, next) => {
+  if(to.matched.some((record) => record.meta.guest)) {
+    if(store.getters.isAuthenticated) {
+      next("/timeline");
+      return
+    }
+    next();
+  } else {
+    next()
+  }
+});
 
 export default router
