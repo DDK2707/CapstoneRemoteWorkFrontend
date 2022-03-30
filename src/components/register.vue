@@ -71,7 +71,7 @@ export default {
     async submit() {
       try {
         await this.Register(this.form);
-        this.$router.push("/home");
+        this.$router.push("/timeline");
         this.showError = false
       }catch (error) {
         this.showError = true

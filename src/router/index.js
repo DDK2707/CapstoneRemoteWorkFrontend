@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import Home from '../views/Home.vue'
+import Timeline from '../views/Timeline.vue'
 import About from '../views/About.vue'
 import userProfile from '../views/userProfile.vue'
 import updateProfile from '../views/updateProfile.vue'
@@ -10,9 +10,9 @@ import Register from '../views/Register.vue'
 
 const routes = [
   {
-    path: '/home',
-    name: 'Home',
-    component: Home
+    path: '/timeline',
+    name: 'timeline',
+    component: Timeline
   },
   {
     path: '/about',

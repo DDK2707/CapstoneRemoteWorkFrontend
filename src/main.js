@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import {createApp} from 'vue'
 import App from './App.vue'
 import router from './router'
 import "bootstrap/dist/css/bootstrap.min.css"
@@ -30,6 +30,6 @@ const firebaseConfig = {
   window.Swal = swal
 
 Vue.config.productionTip = false
-new Vue({
+app.create({
   store, router, render: h => h(App)
 }).use(VueSweetalert2).$mount('#app')

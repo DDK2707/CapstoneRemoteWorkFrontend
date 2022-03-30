@@ -60,7 +60,7 @@ export default {
       User.append("password", form.password);
       try{
         await this.LogIn(User);
-        this.$router.push("/home")
+        this.$router.push("/timeline")
         this.showError = false
       }catch(error) {
         this.showError = true
