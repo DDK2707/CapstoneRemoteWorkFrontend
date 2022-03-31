@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import store from "../store"
+// import store from "../store"
 import Timeline from '../views/Timeline.vue'
 import About from '../views/About.vue'
 import userProfile from '../views/userProfile.vue'
